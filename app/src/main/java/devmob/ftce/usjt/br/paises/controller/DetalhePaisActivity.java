@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import devmob.ftce.usjt.br.paises.model.Util;
 
 public class DetalhePaisActivity extends Activity {
     TextView txtNome;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +39,11 @@ public class DetalhePaisActivity extends Activity {
         populacao.setText(""+pais.getPopulacao());
         TextView regiao = (TextView)findViewById(R.id.valor_regiao);
         regiao.setText(""+pais.getRegiao());
+        viewPager = findViewById(R.id.viewPager);
+        FragmentManager fm = getSupportFragmentManager();
+        viewPager.setAdapter(new TabsAdapter(fm));
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.addTab(actionBar.newTab().setText("Detalhe Pais").setTabListener(new MyTabListener(viewPager, 0)));
     }
 }

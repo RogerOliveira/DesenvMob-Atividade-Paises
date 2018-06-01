@@ -4,8 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="devmob.ftce.usjt.br.paises.controller.DetalhePaisActivity">
-
+    <fragment
+        android:id="@+id/helloWorldFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="devmob.ftce.usjt.br.paises.view.DetalhePais"
+        tools:layout="@layout/fragment_detalhe_pais">
+    </fragment>
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
